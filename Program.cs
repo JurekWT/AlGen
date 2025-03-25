@@ -28,6 +28,8 @@ namespace AlGen
             {
                 specimens.Add(Tools.Generate(paramCount, bitsForParam));
             }
+            specimens[1].par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimens[1].bits);
+            MessageBox.Show(specimens[1].bits);
             
         }
     }

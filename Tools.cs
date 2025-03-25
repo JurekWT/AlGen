@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace AlGen
 {
@@ -17,6 +18,7 @@ namespace AlGen
                 string key = Convert.ToString(i, 2).PadLeft(bitsForParam, '0');
                 decodeTable[key] = zdMin + (i / (Math.Pow(2, bitsForParam) - 1)) * zd;
             }
+            List<string> param = 
             double[] result = new double[paramCount];
             return result;
         }
