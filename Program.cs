@@ -16,7 +16,13 @@ namespace AlGen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new AlgorytmGenetyczny());
+            List<Specimen> specimens = new List<Specimen>();
+            for (int i = 0; i < 10; i++)
+            {
+                specimens.Add(Tools.Generate(10, 3));
+            }
+            
         }
     }
 }
