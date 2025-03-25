@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
@@ -9,7 +10,13 @@ namespace AlGen
         static Random random = new Random();
         public static double[] Decode(int zdMin, int zdMax, int bitsForParam, int paramCount, string bits)
         {
-            
+            int zd = zdMax - zdMin;
+            Dictionary<string, double> decodeTable = new Dictionary<string, double>();
+            for (int i = 0; i < Math.Pow(2, bitsForParam); i++)
+            {
+                string key = Convert.ToString(i, 2).PadLeft(bitsForParam, '0');
+                decodeTable[key] = zdMin + (i / (Math.Pow(2, bitsForParam) - 1)) * zd;
+            }
             double[] result = new double[paramCount];
             return result;
         }

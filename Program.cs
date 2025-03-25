@@ -17,10 +17,16 @@ namespace AlGen
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlgorytmGenetyczny());
+            int specimenCount = 9;
+            int paramCount = 2;
+            int bitsForParam = 3;
+            int zdMin = 0;
+            int zdMax = 3;
+            
             List<Specimen> specimens = new List<Specimen>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < specimenCount; i++)
             {
-                specimens.Add(Tools.Generate(10, 3));
+                specimens.Add(Tools.Generate(paramCount, bitsForParam));
             }
             
         }
