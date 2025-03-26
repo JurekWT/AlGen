@@ -23,19 +23,6 @@ namespace AlGen
             int zdMin = 0;
             int zdMax = 3;
             
-            List<Specimen> specimens = new List<Specimen>();
-            for (int i = 0; i < specimenCount; i++)
-            {
-                specimens.Add(Tools.Generate(paramCount, bitsForParam));
-            }
-
-            foreach (var specimen in specimens)
-            {
-                specimen.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimen.bits);
-                specimen.CountMean();
-            }
-            MessageBox.Show($"{specimens[1].bits} - {specimens[1].par[0]} - {specimens[1].par[1]}\n" +
-                            $"{specimens[1].mean}");
             
         }
     }
