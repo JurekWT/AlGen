@@ -23,6 +23,12 @@ namespace AlGen
             return result;
         }
 
+        public static string[] CutString(string bits, int sliceSize)
+        {
+            List<string> result = new List<string>();
+            for (int i = 0; i <
+        }
+        
         public static Specimen Generate(int paramCount, int bitsForParam)
         {
             StringBuilder bits = new StringBuilder(paramCount*bitsForParam);
