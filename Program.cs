@@ -18,8 +18,8 @@ namespace AlGen
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlgorytmGenetyczny());
             int specimenCount = 9;
-            int paramCount = 2;
-            int bitsForParam = 3;
+            int paramCount = 4;
+            int bitsForParam = 5;
             int zdMin = 0;
             int zdMax = 3;
             
@@ -28,9 +28,14 @@ namespace AlGen
             {
                 specimens.Add(Tools.Generate(paramCount, bitsForParam));
             }
-            specimens[1].par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimens[1].bits);
+
+            foreach (var specimen in specimens)
+            {
+                specimen.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimen.bits);
+                specimen.CountMean();
+            }
             MessageBox.Show($"{specimens[1].bits} - {specimens[1].par[0]} - {specimens[1].par[1]}\n" +
-                            $"{specimens[1].CountMean()}");
+                            $"{specimens[1].mean}");
             
         }
     }

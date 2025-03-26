@@ -18,7 +18,7 @@ namespace AlGen
                 string key = Convert.ToString(i, 2).PadLeft(bitsForParam, '0');
                 decodeTable[key] = zdMin + (i / (Math.Pow(2, bitsForParam) - 1)) * zd;
             }
-            List<string> param = Tools.CutString(bits, bitsForParam);
+            List<string> param = CutString(bits, bitsForParam);
             double[] result = new double[paramCount];
             for (int i = 0; i < param.Count; i++)
             {

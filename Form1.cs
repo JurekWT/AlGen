@@ -18,5 +18,20 @@ namespace AlGen
             InitializeComponent();
         }
         
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            zad1 Zad1 = new zad1();
+            Zad1.Show();
+        }
     }
 }

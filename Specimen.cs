@@ -6,20 +6,21 @@ namespace AlGen
     {
         public string bits;
         public double[] par;
+        public double mean;
 
         public Specimen(string bits)
         {
             this.bits = bits;
         }
 
-        public double CountMean()
+        public void CountMean()
         {
             double sum = 0;
             foreach (var value in par)
             {
                 sum += value;
             }
-            return sum / par.Length;
+            mean = sum / par.Length;
         }
     }
 }
