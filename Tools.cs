@@ -18,15 +18,24 @@ namespace AlGen
                 string key = Convert.ToString(i, 2).PadLeft(bitsForParam, '0');
                 decodeTable[key] = zdMin + (i / (Math.Pow(2, bitsForParam) - 1)) * zd;
             }
-            List<string> param = 
+            List<string> param = Tools.CutString(bits, bitsForParam);
             double[] result = new double[paramCount];
+            for (int i = 0; i < param.Count; i++)
+            {
+                result[i] = decodeTable[param[i]];
+            }
             return result;
         }
 
-        public static string[] CutString(string bits, int sliceSize)
+        public static List<string> CutString(string bits, int sliceSize)
         {
-            List<string> result = new List<string>();
-            for (int i = 0; i <
+            List<string> temp = new List<string>();
+            for (int i = 0; i < bits.Length; i += sliceSize)
+            {
+                string slice = bits.Substring(i, Math.Min(bits.Length - i, sliceSize));
+                temp.Add(slice);
+            }
+            return temp;
         }
         
         public static Specimen Generate(int paramCount, int bitsForParam)
