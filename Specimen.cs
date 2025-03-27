@@ -49,7 +49,7 @@ namespace AlGen
         public static Specimen BestSpecimenHighest(List<Specimen> specimens)
         {
             List<Specimen> temp = new List<Specimen>(specimens);
-            Specimen bestSpecimen = temp.OrderByDescending(s => s.foo).First();
+            Specimen bestSpecimen = temp.OrderByDescending(s => s.foo).First().Clone();
             return bestSpecimen;
         }
 

@@ -62,6 +62,12 @@
         <Compile Include="zad1.Designer.cs">
           <DependentUpon>zad1.cs</DependentUpon>
         </Compile>
+        <Compile Include="Zad2.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="Zad2.Designer.cs">
+          <DependentUpon>Zad2.cs</DependentUpon>
+        </Compile>
         <EmbeddedResource Include="Form1.resx">
           <DependentUpon>Form1.cs</DependentUpon>
         </EmbeddedResource>
@@ -76,6 +82,9 @@
         </Compile>
         <EmbeddedResource Include="zad1.resx">
           <DependentUpon>zad1.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="Zad2.resx">
+          <DependentUpon>Zad2.cs</DependentUpon>
         </EmbeddedResource>
         <None Include="Properties\Settings.settings">
             <Generator>SettingsSingleFileGenerator</Generator>

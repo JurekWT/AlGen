@@ -17,21 +17,26 @@ namespace AlGen
         {
             InitializeComponent();
         }
-        
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
             zad1 Zad1 = new zad1();
+            this.Hide();
             Zad1.ShowDialog();
+            this.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Zad2 Zad2 = new Zad2();
+            this.Hide();
+            Zad2.ShowDialog();
+            this.Show();
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

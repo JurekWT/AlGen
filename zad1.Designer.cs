@@ -44,12 +44,14 @@ namespace AlGen
             this.textChrom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.buttonExZad1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.groupBox1.Controls.Add(this.buttonExZad1);
             this.groupBox1.Controls.Add(this.textOutput);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.textIter);
@@ -69,18 +71,19 @@ namespace AlGen
             // 
             // textOutput
             // 
-            this.textOutput.Location = new System.Drawing.Point(6, 194);
+            this.textOutput.Location = new System.Drawing.Point(6, 155);
             this.textOutput.Multiline = true;
             this.textOutput.Name = "textOutput";
+            this.textOutput.ReadOnly = true;
             this.textOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textOutput.Size = new System.Drawing.Size(606, 364);
+            this.textOutput.Size = new System.Drawing.Size(606, 403);
             this.textOutput.TabIndex = 9;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(94, 155);
+            this.button1.Location = new System.Drawing.Point(380, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(446, 33);
+            this.button1.Size = new System.Drawing.Size(218, 33);
             this.button1.TabIndex = 8;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
@@ -162,23 +165,38 @@ namespace AlGen
             this.label1.TabIndex = 0;
             this.label1.Text = "Liczba chromosomów na parametr (min. 3):\r\n";
             // 
+            // buttonExZad1
+            // 
+            this.buttonExZad1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExZad1.Location = new System.Drawing.Point(380, 74);
+            this.buttonExZad1.Name = "buttonExZad1";
+            this.buttonExZad1.Size = new System.Drawing.Size(218, 33);
+            this.buttonExZad1.TabIndex = 1;
+            this.buttonExZad1.Text = "Wyjście";
+            this.buttonExZad1.UseVisualStyleBackColor = true;
+            this.buttonExZad1.Click += new System.EventHandler(this.buttonExZad1_Click);
+            // 
             // zad1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::AlGen.Properties.Resources.genetic_algorithm2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(642, 588);
+            this.ClientSize = new System.Drawing.Size(642, 583);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "zad1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zadanie 1";
+            this.TopMost = true;
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button buttonExZad1;
 
         private System.Windows.Forms.TextBox textOutput;
 

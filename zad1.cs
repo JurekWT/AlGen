@@ -58,8 +58,9 @@ namespace AlGen
 
                     mean = Specimen.CountMean(specimens);
                     best = Specimen.BestSpecimenHighest(specimens).Clone();
-                    textOutput.Text += $"Najlepszy: {best.bits} - Funkcja przystosowania {best.foo:F2} \r\n" +
-                                       $"Średnia funkcja przystosowania {mean:F2}\r\n";
+                    textOutput.Text += $"Najlepszy:{best.foo:F2} \r\n" +
+                                       $"Średnia funkcja przystosowania {mean:F2}\r\n" +
+                                       $"\r\n";
                     int count = 0;
                     while (count != iters)
                     {
@@ -70,15 +71,16 @@ namespace AlGen
                             child.Mutate();
                             child.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, child.bits);
                             child.CountFunc1();
-                            nextGen.Add(child);
+                            nextGen.Add(child.Clone());
                         }
                         nextGen.Add(best);
                         specimens = new List<Specimen>(nextGen);
                         best = Specimen.BestSpecimenHighest(specimens).Clone();
                         mean = Specimen.CountMean(specimens);
                         textOutput.Text += $"Iteracja {count+1} \r\n" +
-                                           $"Najlepszy: {best.bits} - Funkcja przystosowania: {best.foo:F2}\r\n" +
-                                           $"Średnia funkcja przystosowania {mean:F2}\r\n";
+                                           $"Najlepszy: {best.foo:F2}\r\n" +
+                                           $"Średnia funkcja przystosowania {mean:F2}\r\n" +
+                                           $"\r\n";
                         count++;
                     }
                 }
@@ -121,6 +123,11 @@ namespace AlGen
             {
                 e.Handled = true;
             }
+        }
+
+        private void buttonExZad1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
