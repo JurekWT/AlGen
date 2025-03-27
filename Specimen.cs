@@ -6,13 +6,27 @@ namespace AlGen
 {
     public class Specimen
     {
+        Random random = new Random();
         public string bits;
         public double[] par;
         public double foo;
 
+        public Specimen()
+        {
+        }
+
         public Specimen(string bits)
         {
             this.bits = bits;
+        }
+        public Specimen Clone()
+        {
+            return new Specimen
+            {
+                bits = string.Copy(this.bits),
+                foo = this.foo,              
+                par = (double[])this.par.Clone()
+            };
         }
 
         public void CountFunc1()
@@ -34,8 +48,17 @@ namespace AlGen
 
         public static Specimen BestSpecimenHighest(List<Specimen> specimens)
         {
-            Specimen bestSpecimen = specimens.OrderByDescending(s => s.foo).First();
+            List<Specimen> temp = new List<Specimen>(specimens);
+            Specimen bestSpecimen = temp.OrderByDescending(s => s.foo).First();
             return bestSpecimen;
+        }
+
+        public void Mutate()
+        {
+            int pointOfMutation = random.Next(0, bits.Length);
+            char[] chars = bits.ToCharArray();
+            chars[pointOfMutation] = chars[pointOfMutation] == '0' ? '1' : '0';
+            bits = new string(chars);
         }
     }
 }

@@ -69,7 +69,6 @@ namespace AlGen
             // 
             // textOutput
             // 
-            this.textOutput.Enabled = false;
             this.textOutput.Location = new System.Drawing.Point(6, 194);
             this.textOutput.Multiline = true;
             this.textOutput.Name = "textOutput";

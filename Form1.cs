@@ -31,7 +31,7 @@ namespace AlGen
         private void button1_Click(object sender, EventArgs e)
         {
             zad1 Zad1 = new zad1();
-            Zad1.Show();
+            Zad1.ShowDialog();
         }
     }
 }

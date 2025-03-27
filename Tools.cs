@@ -48,5 +48,20 @@ namespace AlGen
             Specimen specimen = new Specimen(bits.ToString());
             return specimen;
         }
+
+        public static Specimen CompetitionHighest(List<Specimen> specimens, int compSize)
+        {
+            List<Specimen> specimens2 = new List<Specimen>(specimens);
+            List<Specimen> temp2 = new List<Specimen>();
+            int number;
+            for (int i = 0; i < compSize; i++)
+            {
+                number = random.Next(0, specimens2.Count);
+                temp2.Add(specimens2.ElementAt(number));
+                specimens2.RemoveAt(number);
+            }
+            Specimen winner = temp2.OrderByDescending(s => s.foo).First();
+            return winner;
+        }
     }
 }

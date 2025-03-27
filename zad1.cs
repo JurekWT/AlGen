@@ -36,25 +36,51 @@ namespace AlGen
                     paramCount = 2;
                     specimenCount = int.Parse(textOsob.Text);
                     bitsForParam = int.Parse(textChrom.Text);
+                    iters = int.Parse(textIter.Text);
+                    double pct = double.Parse(textTurn.Text) / 100.0;
+                    int turn;
                     double mean;
                     Specimen best;
+
+                    turn = (int)(specimenCount * pct);
+                    if (turn < 2)
+                    {
+                        turn = 2;
+                    }
+                    
                     List<Specimen> specimens = new List<Specimen>();
                     for (int i = 0; i < specimenCount; i++)
                     {
                         specimens.Add(Tools.Generate(paramCount, bitsForParam));
+                        specimens[i].par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimens[i].bits);
+                        specimens[i].CountFunc1();
                     }
 
-                    foreach (var specimen in specimens)
+                    mean = Specimen.CountMean(specimens);
+                    best = Specimen.BestSpecimenHighest(specimens);
+                    textOutput.Text += $"Najlepszy: {best.bits} - Funkcja przystosowania {best.foo:F2} \r\n" +
+                                       $"Średnia funkcja przystosowania {mean:F2}\r\n";
+                    int count = 0;
+                    while (count != iters)
                     {
-                        specimen.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimen.bits);
-                        specimen.CountFunc1();
+                        List<Specimen> nextGen = new List<Specimen>();
+                        for (int i = 0; i < specimens.Count - 1; i++)
+                        {
+                            Specimen child = Tools.CompetitionHighest(specimens, turn);
+                            child.Mutate();
+                            child.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, child.bits);
+                            child.CountFunc1();
+                            nextGen.Add(child);
+                        }
+                        nextGen.Add(best);
+                        specimens = new List<Specimen>(nextGen);
+                        best = Specimen.BestSpecimenHighest(specimens).Clone();
+                        mean = Specimen.CountMean(specimens);
+                        textOutput.Text += $"Iteracja {count+1} \r\n" +
+                                           $"Najlepszy: {best.bits} - Funkcja przystosowania: {best.foo:F2}\r\n" +
+                                           $"Średnia funkcja przystosowania {mean:F2}\r\n";
+                        count++;
                     }
-                     mean = Specimen.CountMean(specimens);
-                     best = Specimen.BestSpecimenHighest(specimens);
-                     textOutput.Text += $"Najlepszy: {best.bits} - Funkcja przystosowania {best.foo:F2} \r\n" +
-                                        $"Średnia funkcja przystosowania {mean:F2}";
-                     
-
                 }
                 
             }
