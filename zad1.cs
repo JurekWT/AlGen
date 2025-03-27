@@ -57,7 +57,7 @@ namespace AlGen
                     }
 
                     mean = Specimen.CountMean(specimens);
-                    best = Specimen.BestSpecimenHighest(specimens);
+                    best = Specimen.BestSpecimenHighest(specimens).Clone();
                     textOutput.Text += $"Najlepszy: {best.bits} - Funkcja przystosowania {best.foo:F2} \r\n" +
                                        $"Średnia funkcja przystosowania {mean:F2}\r\n";
                     int count = 0;

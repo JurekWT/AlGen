@@ -33,7 +33,7 @@ namespace AlGen
         {
             double x1 = par[0];
             double x2 = par[1];
-            foo = Math.Sin(x1 * 0.05) + Math.Sin(x2 * 0.05) + 0.4 * Math.Sin(x1 * 0.15) + Math.Sin(x2 * 0.15);
+            foo = Math.Sin(x1 * 0.05) + Math.Sin(x2 * 0.05) + 0.4 * Math.Sin(x1 * 0.15) * Math.Sin(x2 * 0.15);
         }
 
         public static double CountMean(List<Specimen> specimens)
