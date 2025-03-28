@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -71,9 +72,9 @@ namespace AlGen
             double[] yValues = new double[lines.Length];
             for (int i = 0; i < lines.Length; i++)
             {
-                string[] values = lines[i].Trim().Split(' ');
-                xValues[i] = double.Parse(values[0]);
-                yValues[i] = double.Parse(values[1]);
+                string[] values = lines[i].Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries);
+                xValues[i] = double.Parse(values[0], NumberStyles.Float, CultureInfo.InvariantCulture);
+                yValues[i] = double.Parse(values[1], NumberStyles.Float, CultureInfo.InvariantCulture);
             }
             return (xValues, yValues);
         }

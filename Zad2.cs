@@ -41,18 +41,19 @@ namespace AlGen
                     bitsForParam = int.Parse(textChromosom.Text);
                     competitionSize = int.Parse(textCompetition.Text);
                     iters = int.Parse(textIterate.Text);
+                    
                     (double[] xValues, double[] yValues) = Tools.LoadFileEx2("sinusik.txt");
-                    for (int i = 0; i < xValues.Length; i++)
-                    {
-                        textOutput.Text = xValues[i].ToString() + " - " + yValues[i].ToString();
-                    }
+                    
                     var specimenPopulation = new List<Specimen>();
                     for (int i = 0; i < specimenCount; i++)
                     {
                         specimenPopulation.Add(Tools.Generate(paramCount, bitsForParam));
-                        Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimenPopulation[i].bits);
-                        
+                        specimenPopulation[i].par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimenPopulation[i].bits);
+                        specimenPopulation[i].CountFunc2(xValues, yValues);
                     }
+                    
+                    var bestSpecimen = Specimen.BestSpecimenLowest(specimenPopulation).Clone();
+                    var mean = Specimen.CountMean(specimenPopulation);
                 }
             }
             catch (Exception er)

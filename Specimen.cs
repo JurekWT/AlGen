@@ -36,6 +36,18 @@ namespace AlGen
             foo = Math.Sin(x1 * 0.05) + Math.Sin(x2 * 0.05) + 0.4 * Math.Sin(x1 * 0.15) * Math.Sin(x2 * 0.15);
         }
 
+        public void CountFunc2(double[] x1, double[] x2)
+        {
+            double result = 0;
+            for (int i = 0; i < x1.Length; i++)
+            {
+                double specimenValue = par[0] * Math.Sin(par[1] * x1[i] + par[2]);
+                result += Math.Pow(specimenValue - x2[i], 2);
+            }
+
+            foo = result;
+        }
+
         public static double CountMean(List<Specimen> specimens)
         {
             double sum = 0;
@@ -50,6 +62,13 @@ namespace AlGen
         {
             List<Specimen> temp = new List<Specimen>(specimens);
             Specimen bestSpecimen = temp.OrderByDescending(s => s.foo).First().Clone();
+            return bestSpecimen;
+        }
+
+        public static Specimen BestSpecimenLowest(List<Specimen> specimens)
+        {
+            List<Specimen> temp = new List<Specimen>(specimens);
+            Specimen bestSpecimen = temp.OrderBy(s => s.foo).First().Clone();
             return bestSpecimen;
         }
 
