@@ -141,6 +141,7 @@ namespace AlGen
             this.textIterate.TabIndex = 3;
             this.textIterate.Text = "100";
             this.textIterate.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textIterate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textIterate_KeyPress);
             // 
             // label2
             // 
@@ -158,6 +159,7 @@ namespace AlGen
             this.textChromosom.TabIndex = 1;
             this.textChromosom.Text = "4";
             this.textChromosom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textChromosom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textChromosom_KeyPress);
             // 
             // label1
             // 

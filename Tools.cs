@@ -63,5 +63,19 @@ namespace AlGen
             Specimen winner = temp2.OrderByDescending(s => s.foo).First();
             return winner;
         }
+
+        public static (double[] xValues, double[] yValues) LoadFileEx2(string filename)
+        {
+            string[] lines = System.IO.File.ReadAllLines(filename);
+            double[] xValues = new double[lines.Length];
+            double[] yValues = new double[lines.Length];
+            for (int i = 0; i < lines.Length; i++)
+            {
+                string[] values = lines[i].Trim().Split(' ');
+                xValues[i] = double.Parse(values[0]);
+                yValues[i] = double.Parse(values[1]);
+            }
+            return (xValues, yValues);
+        }
     }
 }

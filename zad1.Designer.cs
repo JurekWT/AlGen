@@ -33,6 +33,7 @@ namespace AlGen
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(zad1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonExZad1 = new System.Windows.Forms.Button();
             this.textOutput = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textIter = new System.Windows.Forms.TextBox();
@@ -44,7 +45,6 @@ namespace AlGen
             this.textChrom = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.buttonExZad1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,6 +68,17 @@ namespace AlGen
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zadanie 1";
+            // 
+            // buttonExZad1
+            // 
+            this.buttonExZad1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.buttonExZad1.Location = new System.Drawing.Point(380, 74);
+            this.buttonExZad1.Name = "buttonExZad1";
+            this.buttonExZad1.Size = new System.Drawing.Size(218, 33);
+            this.buttonExZad1.TabIndex = 1;
+            this.buttonExZad1.Text = "Wyjście";
+            this.buttonExZad1.UseVisualStyleBackColor = true;
+            this.buttonExZad1.Click += new System.EventHandler(this.buttonExZad1_Click);
             // 
             // textOutput
             // 
@@ -164,17 +175,6 @@ namespace AlGen
             this.label1.Size = new System.Drawing.Size(281, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Liczba chromosomów na parametr (min. 3):\r\n";
-            // 
-            // buttonExZad1
-            // 
-            this.buttonExZad1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.buttonExZad1.Location = new System.Drawing.Point(380, 74);
-            this.buttonExZad1.Name = "buttonExZad1";
-            this.buttonExZad1.Size = new System.Drawing.Size(218, 33);
-            this.buttonExZad1.TabIndex = 1;
-            this.buttonExZad1.Text = "Wyjście";
-            this.buttonExZad1.UseVisualStyleBackColor = true;
-            this.buttonExZad1.Click += new System.EventHandler(this.buttonExZad1_Click);
             // 
             // zad1
             // 

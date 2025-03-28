@@ -17,13 +17,6 @@ namespace AlGen
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new AlgorytmGenetyczny());
-            int specimenCount = 9;
-            int paramCount = 4;
-            int bitsForParam = 5;
-            int zdMin = 0;
-            int zdMax = 3;
-            
-            
         }
     }
 }
