@@ -65,6 +65,21 @@ namespace AlGen
             return winner;
         }
 
+        public static Specimen CompetitionLowest(List<Specimen> specimens, int compSize)
+        {
+            var specimens2 = new List<Specimen>(specimens);
+            var temp2 = new List<Specimen>();
+            int number;
+            for (int i = 0; i < compSize; i++)
+            {
+                number = random.Next(0, specimens2.Count);
+                temp2.Add(specimens2.ElementAt(number));
+                specimens2.RemoveAt(number);
+            }
+            Specimen winner = temp2.OrderBy(s => s.foo).First();
+            return winner;
+        }
+
         public static (double[] xValues, double[] yValues) LoadFileEx2(string filename)
         {
             string[] lines = System.IO.File.ReadAllLines(filename);

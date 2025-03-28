@@ -54,6 +54,40 @@ namespace AlGen
                     
                     var bestSpecimen = Specimen.BestSpecimenLowest(specimenPopulation).Clone();
                     var mean = Specimen.CountMean(specimenPopulation);
+                    textOutput.Text = $"Najlepszy: {bestSpecimen.foo:F2}" + Environment.NewLine +
+                                      $"Średnia funkcja przystosowania: {mean:F2}" + Environment.NewLine;
+
+                    for (int i = 0; i < iters; i++)
+                    {
+                        var specimenNewGeneration = new List<Specimen>();
+                        textOutput.Text += $"Iteracja {i + 1}" + Environment.NewLine;
+                        for (int j = 0; j < specimenPopulation.Count - 1; j++)
+                        {
+                            var child = Tools.CompetitionLowest(specimenPopulation, competitionSize);
+                            specimenNewGeneration.Add(child.Clone());
+                        }
+                        Specimen.Crossover(specimenNewGeneration[0], specimenNewGeneration[1]);
+                        Specimen.Crossover(specimenNewGeneration[2], specimenNewGeneration[3]);
+                        Specimen.Crossover(specimenNewGeneration[8], specimenNewGeneration[9]);
+                        Specimen.Crossover(specimenNewGeneration[10], specimenNewGeneration[11]);
+                        for (int j = 4; j < specimenNewGeneration.Count; j++)
+                        {
+                            specimenNewGeneration[j].Mutate();
+                        }
+
+                        foreach (var specimen in specimenNewGeneration)
+                        {
+                            specimen.par = Tools.Decode(zdMin, zdMax, bitsForParam, paramCount, specimen.bits);
+                            specimen.CountFunc2(xValues, yValues);
+                        }
+                        specimenNewGeneration.Add(bestSpecimen);
+                        specimenPopulation = new List<Specimen>(specimenNewGeneration);
+                        bestSpecimen = Specimen.BestSpecimenLowest(specimenPopulation).Clone();
+                        mean = Specimen.CountMean(specimenPopulation);
+                        textOutput.Text += $"Najlepszy: {bestSpecimen.foo:F2}" + Environment.NewLine +
+                                          $"Średnia funkcji przystosowania: {mean}" + Environment.NewLine;
+
+                    }
                 }
             }
             catch (Exception er)

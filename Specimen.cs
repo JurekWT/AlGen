@@ -6,7 +6,7 @@ namespace AlGen
 {
     public class Specimen
     {
-        Random random = new Random();
+        static Random random = new Random();
         public string bits;
         public double[] par;
         public double foo;
@@ -78,6 +78,17 @@ namespace AlGen
             char[] chars = bits.ToCharArray();
             chars[pointOfMutation] = chars[pointOfMutation] == '0' ? '1' : '0';
             bits = new string(chars);
+        }
+
+        public static void Crossover(Specimen specimen1, Specimen specimen2)
+        {
+            var pointOfCrossover = random.Next(0, specimen1.bits.Length - 2);
+            var specimen1Part1 = specimen1.bits.Substring(0, pointOfCrossover);
+            var specimen1Part2 = specimen1.bits.Substring(pointOfCrossover);
+            var specimen2Part1 = specimen2.bits.Substring(0, pointOfCrossover);
+            var specimen2Part2 = specimen2.bits.Substring(pointOfCrossover);
+            specimen1.bits = specimen1Part1 + specimen2Part2;
+            specimen2.bits = specimen2Part1 + specimen1Part2;
         }
     }
 }
