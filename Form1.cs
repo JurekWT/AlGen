@@ -38,5 +38,13 @@ namespace AlGen
         {
             Application.Exit();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Zad3 Zad3 = new Zad3();
+            this.Hide();
+            Zad3.ShowDialog();
+            this.Show();
+        }
     }
 }

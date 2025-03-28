@@ -93,5 +93,22 @@ namespace AlGen
             }
             return (xValues, yValues);
         }
+
+        public static double CalcNeurons(double[] param, double x1, double x2)
+        {
+            double[] hidden = new double[2];
+            for (int i = 0; i < 2; i++)
+            {
+                var sum = x1 * param[i*3] + x2 * param[i*3 + 1] + param[i*3 + 2];
+                hidden[i] = Sigma(sum);
+            }
+            var result = hidden[0] * param[6] + hidden[1] * param[7] + param[8];
+            return Sigma(result);
+        }
+
+        public static double Sigma(double value)
+        {
+            return 1 / (1 + Math.Exp(-value));
+        }
     }
 }

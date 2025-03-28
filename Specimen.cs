@@ -48,6 +48,18 @@ namespace AlGen
             foo = result;
         }
 
+        public void CountFunc3(double[,] input, double[] output)
+        {
+            double result = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                double specimenValue = Tools.CalcNeurons(par,input[i,0],input[i,1]);
+                result += Math.Pow(specimenValue - output[i], 2);
+            }
+
+            foo = result;
+        }
+
         public static double CountMean(List<Specimen> specimens)
         {
             double sum = 0;

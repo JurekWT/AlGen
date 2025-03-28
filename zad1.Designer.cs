@@ -102,7 +102,7 @@ namespace AlGen
             // 
             // textIter
             // 
-            this.textIter.Location = new System.Drawing.Point(151, 125);
+            this.textIter.Location = new System.Drawing.Point(293, 127);
             this.textIter.Name = "textIter";
             this.textIter.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textIter.Size = new System.Drawing.Size(49, 22);
@@ -121,7 +121,7 @@ namespace AlGen
             // 
             // textTurn
             // 
-            this.textTurn.Location = new System.Drawing.Point(273, 85);
+            this.textTurn.Location = new System.Drawing.Point(293, 85);
             this.textTurn.Name = "textTurn";
             this.textTurn.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textTurn.Size = new System.Drawing.Size(49, 22);
@@ -140,7 +140,7 @@ namespace AlGen
             // 
             // textOsob
             // 
-            this.textOsob.Location = new System.Drawing.Point(263, 18);
+            this.textOsob.Location = new System.Drawing.Point(293, 18);
             this.textOsob.Name = "textOsob";
             this.textOsob.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.textOsob.Size = new System.Drawing.Size(49, 22);
